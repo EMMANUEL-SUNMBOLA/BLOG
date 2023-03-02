@@ -6,6 +6,7 @@
 }
 body{
     background-color: #a9d6cf;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 nav{
     width: 100%;
@@ -15,13 +16,24 @@ nav{
     align-items: center;
     background-color: #1a2037;
     color: #ffffff;
-    font-size: 25px;
+    font-size: 20px;
 }
 .formdiv{
     width: 80%;
+    margin: 150px auto;
     form{
+        h1{
+            color: #ffffff;
+            text-transform: uppercase;
+            margin: 15px auto;
+        }
         width: 100%;
         margin: 20px auto;
+        border: 1px solid #ffffff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
         box-shadow:
         2.8px 2.8px 2.2px rgba(0, 0, 0, 0.02),
         6.7px 6.7px 5.3px rgba(0, 0, 0, 0.028),
@@ -31,13 +43,14 @@ nav{
         100px 100px 80px rgba(0, 0, 0, 0.07);
         border-radius: 5px;
         input[name= "top"]{
-            width: 100%;
+            width: 80%;
             height: 40px;
             text-align: center;
             font-size: 20px;
+            margin: 20px auto;
         }
         textarea[name = "cont" ]{
-            width: 100%;
+            width: 80%;
         }
         button{
             margin-top: 30px;
