@@ -1,5 +1,5 @@
 <h1>Welcome to BLOG</h1>
-<h3>so far </h3> 
+<h3>SO FAR ..</h3> 
 <ul>
 <li>
     I've made the structure for uploading blog content
