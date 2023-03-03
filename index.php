@@ -4,7 +4,15 @@
     if(($_SERVER["REQUEST_METHOD"] == "POST") && isset($_POST["sub"])){
         $topic = strip_tags($_POST["top"]);
         $cont = strip_tags($_POST["cont"]);
-        if(isset($_FILES["img"])){
+
+        if(empty($topic)){
+            $err[] = "Topic shouldn't be empty";
+        }
+        if(empty($cont)){
+            $err[] = "content shouldn't be empty";
+        }
+
+    if(isset($_FILES["img"]) || (empty($_FILES["img"]))){
         $FILES = $_FILES["img"];
         $name = $FILES["name"];
         $type = $FILES["type"];
@@ -15,7 +23,7 @@
 
         // if(($type !== "image/jpg") || $type !== "image/jpeg" || $type !== "image/png" || $type !== "image/" || )
         $mac = explode("/",$type);
-        if(($mac[0] !== "image") || ($mac !== "video")){
+        if(($mac[0] !== "image") || ($mac[0] !== "video")){
             $err[] = "invalid file type";
         }
       }
@@ -23,32 +31,29 @@
         $err[] = "select an image/video"; 
       }
 
-        if(empty($topic)){
-            $err[] = "Topic shouldn't be empty";
-        }
-        if(empty($cont)){
-            $err[] = "content shouldn't be empty";
-        }
 
-        $to =  __DIR__ . '/images/' . $photo;
-        // $move = move_uploaded_file($tmp,$to);
-                if($move == 0){
-                    $prob[] = 'file uploaded successfully ✔️';
-                }
-                 elseif($move == 1){
-                $err[] = 'The uploaded file exceeds the upload_max_filesize directive in php.ini';
-                }
-                elseif($move == 3){
-                $err[] = 'The uploaded file was only partially uploaded';
-                }
-                elseif($move == 4){
-                $err[] = 'No file was uploaded';
-                }
-                elseif($move == 7){
-                 $err[] = 'Failed to write file to disk.';
-                }
+      if{empty($err)}{
+        
+          $to =  __DIR__ . '/images/' . $photo;
+          $move = move_uploaded_file($tmp,$to);
+                  if($move == 0){
+                      $prob[] = 'file uploaded successfully ✔️';
+                  }
+                   elseif($move == 1){
+                  $err[] = 'The uploaded file exceeds the upload_max_filesize directive in php.ini';
+                  }
+                  elseif($move == 3){
+                  $err[] = 'The uploaded file was only partially uploaded';
+                  }
+                  elseif($move == 4){
+                  $err[] = 'No file was uploaded';
+                  }
+                  elseif($move == 7){
+                   $err[] = 'Failed to write file to disk.';
+                  }
+      }
     }else{
-        $prob[] = "SOMETHING WEN'T WRONG";
+        $err[] = "SOMETHING WEN'T WRONG";
     }
 
 ?>
@@ -77,12 +82,11 @@
     </div>
         <?php
             if((isset($_POST["sub"])) && (!empty($err))){
-                echo '<div class="errs">';
-                echo "<h1> Something wen't wrong , Correct the following </h1><ol>";
+                echo '<div class="errs"><ul>';
                 foreach($err as $cellary){
                     echo '<li>' . $cellary . '</li>' ;
                 }
-                echo '</ol>';
+                echo '</ul>';
             }
             if((isset($_POST["sub"])) && (!empty($prob))){
                 echo '<div class="prob">';
