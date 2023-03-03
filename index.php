@@ -4,7 +4,7 @@
     if(($_SERVER["REQUEST_METHOD"] == "POST") && isset($_POST["sub"])){
         $topic = strip_tags($_POST["top"]);
         $cont = strip_tags($_POST["cont"]);
-        $FILE = $_FILES["name"];
+        $FILES = $_FILES["name"];
         $type = $FILES["type"];
         $tmp = $FILES["tmp_name"];
         $size = $FILES["size"];
@@ -54,7 +54,7 @@
         <h1>Welcome to blog admin page</h1>
     </nav>
     <div class="formdiv">
-        <form action="" method="post">
+        <form action="" method="post" enctype="multipart/form-data">
             <h1>Add a post</h1>
             <input type="file"><br>
             <input type="text" name="top" placeholder="TOPIC"><br>
@@ -63,15 +63,22 @@
             <button type="submit" name="sub">SUBMIT</button>
         </form>
     </div>
-    <div class="errs">
         <?php
             if((isset($_POST["sub"])) && (!empty($err))){
+                echo '<div class="errs">';
                 echo "<h1> Something wen't wrong , Correct the following </h1><ol>";
                 foreach($err as $cellary){
                     echo '<li>' . $cellary . '</li>' ;
                 }
                 echo '</ol>';
             }
+            if((isset($_POST["sub"])) && (!empty($prob))){
+                echo '<div class="prob">';
+                foreach($err as $cellary){
+                    echo  $cellary ;
+                }
+            }
+
         ?>
     </div>
 </body>
