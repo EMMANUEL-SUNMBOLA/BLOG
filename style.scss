@@ -74,8 +74,10 @@ nav{
     justify-content: center;
     background-color: #f80400;
     color: #ffffff;
+    flex-direction: column;
 }
 .prob{
+    flex-direction: column;
     width: 100%;
     display: flex;
     align-items: center;
