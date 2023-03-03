@@ -4,12 +4,24 @@
     if(($_SERVER["REQUEST_METHOD"] == "POST") && isset($_POST["sub"])){
         $topic = strip_tags($_POST["top"]);
         $cont = strip_tags($_POST["cont"]);
-        $FILES = $_FILES["name"];
+        if(isset($_FILES["img"])){
+        $FILES = $_FILES["img"];
+        $name = $FILES["name"];
         $type = $FILES["type"];
         $tmp = $FILES["tmp_name"];
         $size = $FILES["size"];
         $tmp = $FILES['tmp_name'];
         $ferr = $FILES["error"];
+
+        // if(($type !== "image/jpg") || $type !== "image/jpeg" || $type !== "image/png" || $type !== "image/" || )
+        $mac = explode("/",$type);
+        if(($mac[0] !== "image") || ($mac !== "video")){
+            $err[] = "invalid file type";
+        }
+      }
+      else{
+        $err[] = "select an image/video"; 
+      }
 
         if(empty($topic)){
             $err[] = "Topic shouldn't be empty";
@@ -19,7 +31,7 @@
         }
 
         $to =  __DIR__ . '/images/' . $photo;
-        $move = move_uploaded_file($tmp,$to);
+        // $move = move_uploaded_file($tmp,$to);
                 if($move == 0){
                     $prob[] = 'file uploaded successfully ✔️';
                 }
@@ -56,7 +68,7 @@
     <div class="formdiv">
         <form action="" method="post" enctype="multipart/form-data">
             <h1>Add a post</h1>
-            <input type="file"><br>
+            <input type="file" name="img" accept="image/*,video/*"><br>
             <input type="text" name="top" placeholder="TOPIC"><br>
             <!-- <input type="text" name="cont"><br> -->
             <textarea name="cont" id="" cols="30" rows="10"></textarea><br>
