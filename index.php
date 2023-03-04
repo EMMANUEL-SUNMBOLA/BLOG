@@ -16,13 +16,14 @@
         $FILES = $_FILES["img"];
         $name = $FILES["name"];
         $type = $FILES["type"];
-        $tmp = $FILES["tmp_name"];
         $size = $FILES["size"];
         $tmp = $FILES['tmp_name'];
         $ferr = $FILES["error"];
 
         // if(($type !== "image/jpg") || $type !== "image/jpeg" || $type !== "image/png" || $type !== "image/" || )
         $mac = explode("/",$type);
+        $err[] = $mac[0];
+        // $err[] = $type;
         if(($mac[0] !== "image") || ($mac[0] !== "video")){
             $err[] = "invalid file type";
         }
@@ -32,10 +33,10 @@
       }
 
 
-      if{empty($err)}{
+      if(empty($err)){
         
           $to =  __DIR__ . '/images/' . $photo;
-          $move = move_uploaded_file($tmp,$to);
+        //   $move = move_uploaded_file($tmp,$to);
                   if($move == 0){
                       $prob[] = 'file uploaded successfully ✔️';
                   }
@@ -51,6 +52,11 @@
                   elseif($move == 7){
                    $err[] = 'Failed to write file to disk.';
                   }
+
+                  $txt = fopen("content.txt","a+");
+                  $mesage = $name . "|" . $topic . "|" . $cont;
+                  fwrite($txt,$mesage);
+                  fclose($txt);
       }
     }else{
         $err[] = "SOMETHING WEN'T WRONG";
