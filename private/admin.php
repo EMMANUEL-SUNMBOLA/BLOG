@@ -21,42 +21,65 @@
         $ferr = $FILES["error"];
 
         // if(($type !== "image/jpg") || $type !== "image/jpeg" || $type !== "image/png" || $type !== "image/" || )
-        $mac = explode("/",$type);
-        $err[] = $mac[0];
+        // $mac = explode("/",$type);
+        // $err[] = $mac[0];
         // $err[] = $type;
-        if(($mac[0] !== "image") || ($mac[0] !== "video")){
+        // $err[] = $size;
+        // $err[] = $ferr;
+        $allowed = ["image/jpg","image/png","image/jpeg","image/apng","image/gif","image/svg"];
+        // if(($mac[0] !== "image") || ($mac[0] !== "video")){
+        if(!in_array($type,$allowed)){
             $err[] = "invalid file type";
+        }
+        if($size > (10 * 1024 * 1024)){
+            // 1024 * 1024 = 1mb ; adjust to fit the maximum file size you can allow
+            $err[] = "file too big" . $size;
         }
       }
       else{
         $err[] = "select an image/video"; 
       }
-
-
       if(empty($err)){
-        
-          $to =  __DIR__ . '/images/' . $photo;
-        //   $move = move_uploaded_file($tmp,$to);
-                  if($move == 0){
-                      $prob[] = 'file uploaded successfully ✔️';
-                  }
-                   elseif($move == 1){
-                  $err[] = 'The uploaded file exceeds the upload_max_filesize directive in php.ini';
-                  }
-                  elseif($move == 3){
-                  $err[] = 'The uploaded file was only partially uploaded';
-                  }
-                  elseif($move == 4){
-                  $err[] = 'No file was uploaded';
-                  }
-                  elseif($move == 7){
-                   $err[] = 'Failed to write file to disk.';
-                  }
+          
+          $to =  __DIR__ . '/images/' . $name;
+          $move = move_uploaded_file($tmp,$to);
+     
+          if($ferr == 0){
+              $prob[] = 'file uploaded successfully ✔️';
+          }
+           elseif($ferr == 1){
+          $prob[] = 'The uploaded file exceeds the upload_max_filesize directive in php.ini';
+          }
+          elseif($ferr == 3){
+          $prob[] = 'The uploaded file was only partially uploaded';
+          }
+          elseif($ferr == 4){
+          $prob[] = 'No file was uploaded';
+          }
+          elseif($ferr == 7){
+           $prob[] = 'Failed to write file to disk.';
+          }
+                //   if($move == 0){
+                //       $err[] = 'file uploaded successfully ✔️';
+                //   }
+                //    elseif($move == 1){
+                //   $err[] = 'The uploaded file exceeds the upload_max_filesize directive in php.ini';
+                //   }
+                //   elseif($move == 3){
+                //   $err[] = 'The uploaded file was only partially uploaded';
+                //   }
+                //   elseif($move == 4){
+                //   $err[] = 'No file was uploaded';
+                //   }
+                //   elseif($move == 7){
+                //    $err[] = 'Failed to write file to disk.';
+                //   }
 
                   $txt = fopen("content.txt","a+");
-                  $mesage = $name . "|" . $topic . "|" . $cont;
+                  $mesage = $name . "|" . $topic . "|" . $cont . "\n";
                   fwrite($txt,$mesage);
                   fclose($txt);
+                  $prob[] = "blog written successfully";
       }
     }else{
         $err[] = "SOMETHING WEN'T WRONG";
@@ -82,7 +105,7 @@
             <input type="file" name="img" accept="image/*,video/*"><br>
             <input type="text" name="top" placeholder="TOPIC"><br>
             <!-- <input type="text" name="cont"><br> -->
-            <textarea name="cont" id="" cols="30" rows="10"></textarea><br>
+            <input name="cont" id="" placeholder="CONTENT"><br>
             <button type="submit" name="sub">SUBMIT</button>
         </form>
     </div>
@@ -96,8 +119,8 @@
             }
             if((isset($_POST["sub"])) && (!empty($prob))){
                 echo '<div class="prob">';
-                foreach($err as $cellary){
-                    echo  $cellary ;
+                foreach($prob as $cellary){
+                    echo  $cellary . "<br>";
                 }
             }
 

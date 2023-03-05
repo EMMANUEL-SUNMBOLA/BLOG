@@ -21,6 +21,7 @@ nav{
 .formdiv{
     width: 80%;
     margin: 150px auto;
+    height: 50vh;
     form{
         h1{
             color: #ffffff;
@@ -45,6 +46,13 @@ nav{
         input[name= "top"]{
             width: 80%;
             height: 40px;
+            text-align: center;
+            font-size: 20px;
+            margin: 20px auto;
+        }
+        input[name= "cont"]{
+            width: 80%;
+            height: 150px;
             text-align: center;
             font-size: 20px;
             margin: 20px auto;
@@ -79,6 +87,7 @@ nav{
     text-transform: uppercase;
 }
 .prob{
+    text-transform: uppercase;
     flex-direction: column;
     width: 100%;
     display: flex;
