@@ -11,11 +11,13 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <link rel="stylesheet" href="assets/dist/blog.css"> -->
+    <link rel="stylesheet" href="dist/blog.css">
     <title>Document</title>
 </head>
 <body>
     <nav>
-        <a href="#">caveman's blog</a>
+        <a href="#" class="logo">caveman's blog</a>
         <ul>
             <li><a href="#">sport news</a></li>
             <li><a href="#">educational news</a></li>
