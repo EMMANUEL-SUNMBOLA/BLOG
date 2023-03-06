@@ -11,7 +11,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- <link rel="stylesheet" href="assets/dist/blog.css"> -->
+    <link rel="stylesheet" href="assets/dist/blog.css">
     <link rel="stylesheet" href="dist/blog.css">
     <title>Document</title>
 </head>
@@ -21,12 +21,17 @@
         <ul>
             <li><a href="#">sports</a></li>
             <li><a href="#">education</a></li>
-            <li><a href="#">contact</a></li>
+            <li><a target="_blank" href="admin.php">contact</a></li>
         </ul>
     </nav>
     <section class="wel">
         <h1>Welcome to CAVEMAN'S BLOG <sup>So much more to read now</sup></h1>
         <p>News ,Events ,Entertainment ,Lifestyle ,Fashion ,Beauty ,Inspiration and yes.....Gossip!*wink*</p>
+    </section>
+    <section class="news">
+        <div class="gridcontainer">
+
+        </div>
     </section>
 </body>
 </html>

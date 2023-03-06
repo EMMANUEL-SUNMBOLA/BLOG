@@ -41,7 +41,8 @@
       }
       if(empty($err)){
           
-          $to =  __DIR__ . '/images/' . $name;
+        //   $to =  __DIR__ . '/images/' . $name;
+          $to =  __DIR__ . 'assets/images/' . $name;
           $move = move_uploaded_file($tmp,$to);
      
           if($ferr == 0){
@@ -75,7 +76,8 @@
                 //    $err[] = 'Failed to write file to disk.';
                 //   }
 
-                  $txt = fopen("content.txt","a+");
+                //   $txt = fopen("content.txt","a+");
+                  $txt = fopen("../private/content.txt","a+");
                   $mesage = $name . "|" . $topic . "|" . $cont . "\n";
                   fwrite($txt,$mesage);
                   fclose($txt);
