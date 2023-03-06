@@ -19,9 +19,9 @@
     <nav>
         <a href="#" class="logo">caveman's blog</a>
         <ul>
-            <li><a href="#">sport news</a></li>
-            <li><a href="#">educational news</a></li>
-            <li><a href="#">contact us</a></li>
+            <li><a href="#">sports</a></li>
+            <li><a href="#">education</a></li>
+            <li><a href="#">contact</a></li>
         </ul>
     </nav>
 </body>
