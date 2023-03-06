@@ -24,5 +24,9 @@
             <li><a href="#">contact</a></li>
         </ul>
     </nav>
+    <section class="wel">
+        <h1>Welcome to CAVEMAN'S BLOG <sup>So much more to read now</sup></h1>
+        <p>News ,Events ,Entertainment ,Lifestyle ,Fashion ,Beauty ,Inspiration and yes.....Gossip!*wink*</p>
+    </section>
 </body>
 </html>
