@@ -30,7 +30,16 @@
     </section>
     <section class="news">
         <div class="gridcontainer">
-
+            <?php
+                $gum = fopen("../private/content.txt","r");
+                while(!feof($gum)){
+                    $lin = fgets($gum);
+                    $line = explode("|",$lin);
+                    echo "<div>";
+                        echo '<img src="images/' . $line[0] . '" alt="' . $line[0] . '">';
+                    echo "</div>";
+                }
+            ?>
         </div>
     </section>
 </body>
