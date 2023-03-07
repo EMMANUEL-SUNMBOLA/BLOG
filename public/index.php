@@ -37,6 +37,8 @@
                     $line = explode("|",$lin);
                     echo "<div>";
                         echo '<img src="images/' . $line[0] . '" alt="' . $line[0] . '"><br>';
+                        echo '<h1>' . $line[1] . '</h1>';
+                        echo '<p>' . substr($line[2],10) . '<a href=""> Read more</a></p>';
                     echo "</div>";
                 }
             ?>

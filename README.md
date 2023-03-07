@@ -14,10 +14,10 @@
 </ol>
 <li>Images will now be stored in a folder</li>
 <li>Content will also be stored in a folder</li>
+<li>Blog page functional</li>
 </li>
 <h1>To be expexted in the next commit</h1>
 <ul>
-<li>Blog page where all the content and images will be uploaded for viewing of users</li>
 </ul>
 <h6>If you have any suggestion or find a bug pls request a pull request or <a href="mailto:adedayoemmanuel729@gmail.com">mail me</a></h6>
 </ul>
