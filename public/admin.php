@@ -78,7 +78,7 @@
 
                 //   $txt = fopen("content.txt","a+");
                   $txt = fopen("../private/content.txt","a+");
-                  $mesage = $name . "|" . $topic . "|" . $cont . "\n";
+                  $mesage =  "\n" . $name . "|" . $topic . "|" . $cont;
                   fwrite($txt,$mesage);
                   fclose($txt);
                   $prob[] = "blog written successfully";

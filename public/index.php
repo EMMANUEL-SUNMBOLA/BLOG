@@ -36,7 +36,7 @@
                     $lin = fgets($gum);
                     $line = explode("|",$lin);
                     echo "<div>";
-                        echo '<img src="images/' . $line[0] . '" alt="' . $line[0] . '">';
+                        echo '<img src="images/' . $line[0] . '" alt="' . $line[0] . '"><br>';
                     echo "</div>";
                 }
             ?>

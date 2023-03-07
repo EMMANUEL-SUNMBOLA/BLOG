@@ -64,3 +64,16 @@ nav{
         color: $black;
     }
 }
+.gridcontainer{
+    padding: 20px 40px;
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 20px;
+    div{
+        img{
+            width: 300px;
+            aspect-ratio: 1;
+            height: 150px;
+        }
+    }
+}
