@@ -16,8 +16,9 @@
 <li>Content will also be stored in a folder</li>
 <li>Blog page functional</li>
 </li>
-<h1>To be expexted in the next commit</h1>
+<h1>To be expexted in the next update</h1>
 <ul>
+<li>A dedicated page for each news (it'll be created automatically after clicking read more)</li>
 </ul>
 <h6>If you have any suggestion or find a bug pls request a pull request or <a href="mailto:adedayoemmanuel729@gmail.com">mail me</a></h6>
 </ul>
