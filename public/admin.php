@@ -41,8 +41,8 @@
       }
       if(empty($err)){
           
-        //   $to =  __DIR__ . '/images/' . $name;
-          $to =  __DIR__ . 'assets/images/' . $name;
+          $to =  __DIR__ . '/images/' . $name;
+        //   $to =  __DIR__ . 'assets/images/' . $name;
           $move = move_uploaded_file($tmp,$to);
      
           if($ferr == 0){
